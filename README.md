@@ -27,6 +27,8 @@ This will search the Bands in Town Artist Events API for an artist and render th
   * Name of the venue
   * Venue location
   * Date of the Event
+  
+  <img width="329" alt="liri3" src="https://user-images.githubusercontent.com/51039590/63643266-1749a680-c68a-11e9-8a89-9e6eb5064da3.png">
 
 
 Give a high-level overview of how the app is organized
