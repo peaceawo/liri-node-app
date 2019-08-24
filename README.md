@@ -58,6 +58,8 @@ This will show the following information about the song in your terminal/bash wi
  <img width="324" alt="liri2" src="https://user-images.githubusercontent.com/51039590/63643457-c50a8480-c68d-11e9-9907-ba072b633e06.png">
 
 
- Give a high-level overview of how the app is organized
- Give start-to-finish instructions on how to run the app
-Include screenshots, gifs or videos of the app functioning
+5. <img width="396" alt="liri1" src="https://user-images.githubusercontent.com/51039590/63643505-f6d01b00-c68e-11e9-8ef9-be3181adee16.png">
+
+Runs a command that you have run in the past
+
+
