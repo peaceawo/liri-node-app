@@ -5,13 +5,19 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 You will need Node.js and NPM installed on your system.
 
 ### Technology Used: 
-..* JavaScript
-..* Node JS
-..* Node Packages: 
-    Node-Spotify-API, Moment, DotEnv, Axios, OMDb API, Bands in Town API, fs
+* JavaScript
+* Node JS
+* Node Packages:
+   * Node-Spotify-API
+   * Moment
+   * DotEnv
+   * Axios 
+   * OMDb API
+   * Bands in Town API
+   * fs
 
 
-### How To Use it
+### How To Use it-w/screenhots
 Open up your Terminal and navigate to root of project *liri.js*
 
 
