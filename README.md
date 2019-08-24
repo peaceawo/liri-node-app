@@ -22,6 +22,11 @@ Open up your Terminal and navigate to root of project *liri.js*
 
 <img width="329" alt="liri 1" src="https://user-images.githubusercontent.com/51039590/63643094-08adc000-c687-11e9-8f21-4bc4477bfb23.png">
 
+1. 
+This will search the Bands in Town Artist Events API for an artist and render the following information about each event to the terminal/bash window:
+  * Name of the venue
+  * Venue location
+  * Date of the Event
 
 
 Give a high-level overview of how the app is organized
