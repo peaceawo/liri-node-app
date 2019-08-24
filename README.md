@@ -30,6 +30,7 @@ This will search the Bands in Town Artist Events API for an artist and render th
   
   <img width="329" alt="liri3" src="https://user-images.githubusercontent.com/51039590/63643266-1749a680-c68a-11e9-8a89-9e6eb5064da3.png">
 
+
 3. <img width="270" alt="liri1" src="https://user-images.githubusercontent.com/51039590/63643329-74922780-c68b-11e9-8987-4963deca504b.png">
 
 This will output the following information to your terminal/bash window:
@@ -43,6 +44,19 @@ This will output the following information to your terminal/bash window:
  * Actors in the movie
 
 <img width="774" alt="liri2" src="https://user-images.githubusercontent.com/51039590/63643332-81168000-c68b-11e9-9e3f-18545236cf29.png">
+
+
+4. <img width="320" alt="liri1" src="https://user-images.githubusercontent.com/51039590/63643455-c045d080-c68d-11e9-9911-f07941081331.png">
+
+This will show the following information about the song in your terminal/bash window:
+ * Artist
+ * Song Name
+ * The album name the song is from
+ * A preview link of the song from Spotify
+
+
+ <img width="324" alt="liri2" src="https://user-images.githubusercontent.com/51039590/63643457-c50a8480-c68d-11e9-9907-ba072b633e06.png">
+
 
  Give a high-level overview of how the app is organized
  Give start-to-finish instructions on how to run the app
