@@ -30,7 +30,20 @@ This will search the Bands in Town Artist Events API for an artist and render th
   
   <img width="329" alt="liri3" src="https://user-images.githubusercontent.com/51039590/63643266-1749a680-c68a-11e9-8a89-9e6eb5064da3.png">
 
+3. <img width="270" alt="liri1" src="https://user-images.githubusercontent.com/51039590/63643329-74922780-c68b-11e9-8987-4963deca504b.png">
 
-Give a high-level overview of how the app is organized
-Give start-to-finish instructions on how to run the app
+This will output the following information to your terminal/bash window:
+ * Title of the movie
+ * Year the movie came out
+ * IMDB rating of the movie
+ * Rotten Tomatoes rating of the movie
+ * Country where the movie was produced
+ * Language of the movie
+ * Plot of the movie
+ * Actors in the movie
+
+<img width="774" alt="liri2" src="https://user-images.githubusercontent.com/51039590/63643332-81168000-c68b-11e9-9e3f-18545236cf29.png">
+
+ Give a high-level overview of how the app is organized
+ Give start-to-finish instructions on how to run the app
 Include screenshots, gifs or videos of the app functioning
