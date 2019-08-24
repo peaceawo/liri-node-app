@@ -20,7 +20,6 @@ You will need Node.js and NPM installed on your system.
 ### How To Use it-w/screenhots
 1. Open up your Terminal and navigate to root of project *liri.js*
 
-<img width="329" alt="liri 1" src="https://user-images.githubusercontent.com/51039590/63643094-08adc000-c687-11e9-8f21-4bc4477bfb23.png">
 
 2. <img width="358" alt="liri1-2" src="https://user-images.githubusercontent.com/51039590/63643247-8f639c80-c689-11e9-90ca-4ef3d6539160.png">
 
