@@ -11,14 +11,12 @@ var fs = require("fs")
 var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.keys.spotify);
 var songName = "";
+
 //Band Variabble
 bandName = "";
 
-
 // Store all of the arguments in an array
 var input = process.argv;
-
-
 
 // Create an empty variable for holding the movie name
 var movieName = "";
@@ -32,12 +30,26 @@ if (input[2] === 'movie-this') {
   // Then run a request with axios to the OMDB API with the movie specified
   var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&r=json&apikey=" + keys.keys.omdbkey.omdb;
 
-  // This line is just to help us debug against the actual URL.
-  //console.log(queryUrl);
 
   axios.get(queryUrl).then(
     function (response) {
-      console.log(`Title: ${response.data.Title}\nRelease year: ${response.data.Year}\nIMDB Rating: ${response.data.imdbRating}\nRotten Tomatoes Rating: ${response.data.Ratings[1].Value}\nCountry: ${response.data.Country}\nLanguage: ${response.data.Language}\nPlot: ${response.data.Plot}\nActors: ${response.data.Actors}`);
+      var thisMovieData = 
+      "Title: " + response.data.Title +
+      "\n\nRelease year: " + response.data.Year + 
+      "\n\nIMDB Rating: " + response.data.imdbRating +
+      "\n\nRotten Tomatoes Rating: " + response.data.Ratings[1].Value +
+      "\n\nCountry: " + response.data.Country +
+      "\n\nLanguage: " + response.data.Language +
+      "\n\nPlot: " + response.data.Plot +
+      "\n\nActors: " + response.data.Actors
+
+      // Append thismovieData to log.txt, print showData to the console
+      fs.appendFile("log.txt", thisMovieData, function(err) {
+        if (err) throw err;
+
+          console.log(thisMovieData);
+          console.log("\nData added to log.txt")
+      });
 
     })
     .catch(function (error) {
@@ -69,7 +81,22 @@ else if (input[2] === "spotify-this-song") {
   //Spotify
   spotify.search({ type: 'track', query: songName })
     .then(function (response) {
-      console.log(`_________________\nArtist: ${response.tracks.items[0].artists[0].name}\nSong's Name: ${response.tracks.items[0].name}\nAlbum Name: ${response.tracks.items[0].album.name}\nPreview Link: ${response.tracks.items[0].preview_url}\n___________________-`)
+
+
+      var spotifyData = "_____________"+
+      "\nArtist: " + response.tracks.items[0].artists[0].name +
+      "\n\nSong's Name: " + response.tracks.items[0].name +
+      "\n\nAlbum Name: " + response.tracks.items[0].album.name +
+      "\n\nPreview Link: " + response.tracks.items[0].preview_url+
+      "\n____________________"
+
+      // Append thismovieData to log.txt, print showData to the console
+      fs.appendFile("log.txt", spotifyData, function(err) {
+        if (err) throw err;
+          console.log(spotifyData);
+          console.log("\nData added to log.txt")
+            
+      });  
 
     })
     .catch(function (error) {
@@ -104,10 +131,21 @@ else if (input[2] === "concert-this") {
 
         var dateFormatted = moment(response.data[i].datetime).format("MM/DD/YYYY")
 
-        console.log(`Venue: ${response.data[i].venue.name}\nVenue Location: ${response.data[i].venue.city}\nDate: ${dateFormatted}\n_______________`);
-
-      }
-
+        var concertData = 
+          
+          "\nVenue: " + response.data[i].venue.name+
+          "\n\nVenue Location: " + response.data[i].venue.city+
+          "\n\nDate: " + dateFormatted +
+          "\n______________________"
+        
+          // Append thismovieData to log.txt, print showData to the console
+          fs.appendFile("log.txt", concertData, function(err) {
+            if (err) throw err;
+              console.log(concertData);
+              console.log("\nData added to log.txt")
+            
+        });
+    }
 
     })
     .catch(function (error) {
@@ -128,6 +166,8 @@ else if (input[2] === "concert-this") {
       console.log(error.config);
     });
 }
+
+
 //do what it says?
 else if (input[2] === 'do-what-it-says') {
   fs.readFile("random.txt", "utf8", function (error, data) {
@@ -141,8 +181,19 @@ else if (input[2] === 'do-what-it-says') {
     if (input[3] === "spotify-this-song") {
       spotify.search({ type: 'track', query: userRequest })
         .then(function (response) {
-          console.log(`_________________\nArtist: ${response.tracks.items[0].artists[0].name}\nSong's Name: ${response.tracks.items[0].name}\nAlbum Name: ${response.tracks.items[0].album.name}\nPreview Link: ${response.tracks.items[0].preview_url}\n___________________-`)
 
+          var spotifyData = 
+            "Artist: " + response.tracks.items[0].artists[0].name +
+            "\n\nSong's Name: " + response.tracks.items[0].name +
+            "\n\nAlbum Name: " + response.tracks.items[0].album.name +
+            "\n\nPreview Link: " + response.tracks.items[0].preview_url
+          
+            // Append thismovieData to log.txt, print showData to the console
+            fs.appendFile("log.txt", spotifyData, function(err) {
+              if (err) throw err;
+                console.log(spotifyData);
+                console.log("\nData added to log.txt")          
+            });
 
         }).catch(function (error) {
 
@@ -151,17 +202,24 @@ else if (input[2] === 'do-what-it-says') {
     }
     //concert-this
     else if (input[3] === "concert-this") {
-      console.log('concert')
-      console.log('userRequest ', userRequest)
       var Url = "https://rest.bandsintown.com/artists/" + userRequest + "/events?app_id=codingbootcamp"
 
       axios.get(Url).then(
         function (response) {
-          console.log(response.data);
           for (let i = 0; i < 5; i++) {
             var dateFormatted = moment(response.data[i].datetime).format("MM/DD/YYYY")
 
-            console.log(`Venue: ${response.data[i].venue.name}\nVenue Location: ${response.data[i].venue.city}\nDate: ${dateFormatted}\n_______________`);
+            var concertData = 
+              "\nVenue: " + response.data[i].venue.name +
+              "\n\nVenue Location: " + response.data[i].venue.city+
+              "\n\nDate: " + dateFormatted +
+              "\n__________________________"
+              fs.appendFile("log.txt", concertData, function(err) {
+                if (err) throw err;
+                  console.log(concertData);
+                  console.log("\nData added to log.txt")          
+              });
+            
 
           }
         })
@@ -176,7 +234,22 @@ else if (input[2] === 'do-what-it-says') {
 
       axios.get(queryUrl).then(
         function (response) {
-          console.log(`Title: ${response.data.Title}\nRelease year: ${response.data.Year}\nIMDB Rating: ${response.data.imdbRating}\nRotten Tomatoes Rating: ${response.data.Ratings[1].Value}\nCountry: ${response.data.Country}\nLanguage: ${response.data.Language}\nPlot: ${response.data.Plot}\nActors: ${response.data.Actors}`);
+
+          var thisMovieData = 
+            "Title: " + response.data.Title +
+            "\n\nRelease year: " + response.data.Year + 
+            "\n\nIMDB Rating: " + response.data.imdbRating +
+            "\n\nRotten Tomatoes Rating: " + response.data.Ratings[1].Value +
+            "\n\nCountry: " + response.data.Country +
+            "\n\nLanguage: " + response.data.Language +
+            "\n\nPlot: " + response.data.Plot +
+            "\n\nActors: " + response.data.Actors
+
+            fs.appendFile("log.txt", thisMovieData, function(err) {
+              if (err) throw err;
+                console.log(thisMovieData);
+                console.log("\nData added to log.txt")          
+            });
     
         })
         .catch(function(error){
@@ -193,4 +266,3 @@ else if (input[2] === 'do-what-it-says') {
     console.log()
   })
 }
-
